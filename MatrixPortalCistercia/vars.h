@@ -38,3 +38,5 @@ uint8_t zeroX = 2;
 uint8_t zeroY = 16;
 
 uint32_t prevTime = 0;  // Used for frames-per-second throttle
+
+int counter = 0;
