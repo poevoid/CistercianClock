@@ -28,7 +28,8 @@ uint8_t clockPin = 2;
 uint8_t latchPin = 47;
 uint8_t oePin = 14;
 #endif
-
+#define BACK_BUTTON 2
+#define NEXT_BUTTON 3
 #define CLICKTHRESHHOLD 20
 #define NUM_ADDR_PINS 4
 
