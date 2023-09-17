@@ -76,7 +76,7 @@ void drawCistercian80(){
 }
 void drawCistercian90(){
   drawCistercian10();
-  drawCistercian20()
+  drawCistercian20();
   drawCistercian60();
 }
 void drawCistercian1h() {
@@ -108,7 +108,7 @@ void drawCistercian8h(){
 }
 void drawCistercian9h(){
   drawCistercian1h();
-  drawCistercian2h()
+  drawCistercian2h();
   drawCistercian6h();
 }
 void drawCistercian1th() {
@@ -142,7 +142,7 @@ void drawCistercian8th(){
 }
 void drawCistercian9th(){
   drawCistercian1th();
-  drawCistercian2th()
+  drawCistercian2th();
   drawCistercian6th();
 }
 void drawUnits(){
@@ -153,7 +153,7 @@ void drawUnits(){
     drawCistercian1();
   }
   if (counter ==2){
-    drawCistercian2()
+    drawCistercian2();
   }
   if (counter == 3){
     drawCistercian3();
@@ -234,7 +234,7 @@ void drawTens(){
   }
 }
 void drawHundreds(){
-  if (counter >= 100&& counter < 2h){
+  if (counter >= 100&& counter < 200){
     drawCistercian1h();
     counter -=100;
     drawUnits();
@@ -290,7 +290,7 @@ void drawHundreds(){
     drawTens();
     counter+=800;
   }
-  if (counter >= 900&& counter < 100){
+  if (counter >= 900&& counter < 1000){
     drawCistercian9h();
     counter -=900;
     drawUnits();
@@ -307,7 +307,7 @@ void drawThousands(){
     drawHundreds();
     counter+=1000;
   }
-  if (counter >= 2th && counter < 3000){
+  if (counter >= 2000 && counter < 3000){
     drawCistercian2th();
     counter -=2000;
     drawUnits();
@@ -315,7 +315,7 @@ void drawThousands(){
     drawHundreds();
     counter+=2000;
   }
-  if (counter >= 3th && counter < 4000){
+  if (counter >= 3000 && counter < 4000){
     drawCistercian3th();
     counter -=3000;
     drawUnits();
@@ -323,7 +323,7 @@ void drawThousands(){
     drawHundreds();
     counter+=3000;
   }
-  if (counter >= 4th && counter < 5000){
+  if (counter >= 4000 && counter < 5000){
     drawCistercian4th();
     counter -=4000;
     drawUnits();
@@ -331,7 +331,7 @@ void drawThousands(){
     drawHundreds();
     counter+=4000;
   }
-  if (counter >= 5th && counter < 6000){
+  if (counter >= 5000 && counter < 6000){
     drawCistercian5th();
     counter -=5000;
     drawUnits();
@@ -339,7 +339,7 @@ void drawThousands(){
     drawHundreds();
     counter+=5000;
   }
-  if (counter >= 6th && counter < 7000){
+  if (counter >= 6000 && counter < 7000){
     drawCistercian6th();
     counter -=6000;
     drawUnits();
@@ -347,7 +347,7 @@ void drawThousands(){
     drawHundreds();
     counter+=6000;
   }
-  if (counter >= 7th && counter < 8000){
+  if (counter >= 7000 && counter < 8000){
     drawCistercian7th();
     counter -=7000;
     drawUnits();
@@ -355,7 +355,7 @@ void drawThousands(){
     drawHundreds();
     counter+=7000;
   }
-  if (counter >= 8th && counter < 9000){
+  if (counter >= 8000 && counter < 9000){
     drawCistercian8th();
     counter -=8000;
     drawUnits();
@@ -363,7 +363,7 @@ void drawThousands(){
     drawHundreds();
     counter+=8000;
   }
-  if (counter >= 9th && counter < 10000){
+  if (counter >= 9000 && counter < 10000){
     drawCistercian9th();
     counter -=9000;
     drawUnits();
@@ -372,7 +372,12 @@ void drawThousands(){
     counter+=9000;
   }
 }
-
+void drawDots(){
+  if (counter % 2 == 0){
+    matrix.fillRect(30, 7, 4, 4, AMBER);
+    matrix.fillRect(30, 22, 4, 4, AMBER);
+  }
+}
 void drawCistercian(){
   drawUnits();
   drawTens();
@@ -386,7 +391,7 @@ void application() {
   //matrix.drawBitmap(32, 15, cistercian0, 7, 7, WHITE);
   //matrix.drawFastHLine(zeroX, 0, zeroLength, WHITE);
   //thousands
-  drawCistercian6th();
+  /*drawCistercian6th();
   drawCistercian4th();
   drawCistercian3th();
   drawCistercian2th();
@@ -409,6 +414,18 @@ void application() {
   drawCistercian3();
   drawCistercian2();
   drawCistercian1();
-  //zero
+  //zero*/
   drawCistercian0();
+  if(!digitalRead(NEXT_BUTTON) && counter >= 0) {
+      counter--;
+   // while(!digitalRead(BACK_BUTTON));
+  }
+  if(!digitalRead(BACK_BUTTON) && counter < 9999) {
+    counter++;
+    //while(!digitalRead(BACK_BUTTON));
+  }
+  //drawDots();
+  drawCistercian();
+  matrix.setCursor(32,0);
+  matrix.print(counter);
 }
