@@ -1,5 +1,9 @@
 #pragma once
 #include "vars.h"
+int concatenate(int i, int j) {
+    int result = i * 100 + j; 
+    return result;
+}
 
 void err(int x) {
   uint8_t i;
@@ -15,24 +19,24 @@ void drawCistercian0() {
 }
 
 void drawCistercian1() {
-  matrix.drawFastVLine(zeroX, zeroY - legth, legth, RED);
+  matrix.drawFastVLine(zeroX, zeroY - legth, legth, AMBER);
 }
 
 void drawCistercian2() {
-  matrix.drawFastVLine(zeroX + legth, zeroY - legth, legth, RED);
+  matrix.drawFastVLine(zeroX + legth, zeroY - legth, legth, AMBER);
 }
 void drawCistercian3() {
-  matrix.drawLine(zeroX + legth, zeroY - legth, zeroX, zeroY, RED);
+  matrix.drawLine(zeroX + legth, zeroY - legth, zeroX, zeroY, AMBER);
 }
 void drawCistercian4() {
-  matrix.drawLine(zeroX, zeroY - legth, zeroX + legth, zeroY, RED);
+  matrix.drawLine(zeroX, zeroY - legth, zeroX + legth, zeroY, AMBER);
 }
 void drawCistercian5(){
   drawCistercian1();
   drawCistercian4();
 }
 void drawCistercian6() {
-  matrix.drawFastHLine(zeroX, zeroY - legth, legth, RED);
+  matrix.drawFastHLine(zeroX, zeroY - legth, legth, AMBER);
 }
 void drawCistercian7(){
   drawCistercian1();
@@ -48,23 +52,23 @@ void drawCistercian9(){
   drawCistercian6();
 }
 void drawCistercian10() {
-  matrix.drawFastVLine(zeroX, zeroY, legth, GREEN);
+  matrix.drawFastVLine(zeroX, zeroY, legth, AMBER);
 }
 void drawCistercian20() {
-  matrix.drawFastVLine(zeroX + legth, zeroY, legth + 1, GREEN);
+  matrix.drawFastVLine(zeroX + legth, zeroY, legth + 1, AMBER);
 }
 void drawCistercian30() {
-  matrix.drawLine(zeroX, zeroY, zeroX + legth, zeroY + legth, GREEN);
+  matrix.drawLine(zeroX, zeroY, zeroX + legth, zeroY + legth, AMBER);
 }
 void drawCistercian40() {
-  matrix.drawLine(zeroX, zeroY + legth, zeroX + legth, zeroY, GREEN);
+  matrix.drawLine(zeroX, zeroY + legth, zeroX + legth, zeroY, AMBER);
 }
 void drawCistercian50(){
   drawCistercian10();
   drawCistercian40();
 }
 void drawCistercian60() {
-  matrix.drawFastHLine(zeroX, zeroY + legth-1, legth, GREEN);
+  matrix.drawFastHLine(zeroX, zeroY + legth-1, legth, AMBER);
 }
 void drawCistercian70(){
   drawCistercian10();
@@ -80,23 +84,23 @@ void drawCistercian90(){
   drawCistercian60();
 }
 void drawCistercian1h() {
-  matrix.drawFastVLine(zeroLength + 1, zeroY - legth, legth, MAGENTA);
+  matrix.drawFastVLine(zeroLength + 1, zeroY - legth, legth, AMBER);
 }
 void drawCistercian2h() {
-  matrix.drawFastVLine(zeroLength - legth+1, zeroY - legth, legth, MAGENTA);
+  matrix.drawFastVLine(zeroLength - legth+1, zeroY - legth, legth, AMBER);
 }
 void drawCistercian3h() {
-  matrix.drawLine(zeroLength - legth + 1, zeroY - legth, zeroLength + 1, zeroY, MAGENTA);
+  matrix.drawLine(zeroLength - legth + 1, zeroY - legth, zeroLength + 1, zeroY, AMBER);
 }
 void drawCistercian4h() {
-  matrix.drawLine(zeroLength - legth+1, zeroY, zeroLength+1, zeroY - legth, MAGENTA);
+  matrix.drawLine(zeroLength - legth+1, zeroY, zeroLength+1, zeroY - legth, AMBER);
 }
 void drawCistercian5h(){
   drawCistercian1h();
   drawCistercian4h();
 }
 void drawCistercian6h() {
-  matrix.drawFastHLine(zeroLength - legth +1, zeroY - legth, legth, MAGENTA);
+  matrix.drawFastHLine(zeroLength - legth +1, zeroY - legth, legth, AMBER);
 }
 void drawCistercian7h(){
   drawCistercian1h();
@@ -112,16 +116,16 @@ void drawCistercian9h(){
   drawCistercian6h();
 }
 void drawCistercian1th() {
-  matrix.drawFastVLine(zeroLength+1, zeroY, legth, YELLOW);
+  matrix.drawFastVLine(zeroLength+1, zeroY, legth, AMBER);
 }
 void drawCistercian2th() {
-  matrix.drawFastVLine(zeroLength-legth+1, zeroY, legth, YELLOW);
+  matrix.drawFastVLine(zeroLength-legth+1, zeroY, legth, AMBER);
 }
 void drawCistercian3th() {
-  matrix.drawLine(zeroLength-legth+1, zeroY+legth, zeroLength+1, zeroY, YELLOW);
+  matrix.drawLine(zeroLength-legth+1, zeroY+legth, zeroLength+1, zeroY, AMBER);
 }
 void drawCistercian4th() {
-  matrix.drawLine(zeroLength-legth+1, zeroY, zeroLength, zeroY+legth-1, YELLOW);
+  matrix.drawLine(zeroLength-legth+1, zeroY, zeroLength, zeroY+legth-1, AMBER);
 }
 
 void drawCistercian5th(){
@@ -129,7 +133,7 @@ void drawCistercian5th(){
   drawCistercian4th();
 }
 void drawCistercian6th() {
-  matrix.drawFastHLine(zeroLength-legth+1, zeroY+legth-1, legth, YELLOW);
+  matrix.drawFastHLine(zeroLength-legth+1, zeroY+legth-1, legth, AMBER);
 }
 
 void drawCistercian7th(){
@@ -415,17 +419,25 @@ void application() {
   drawCistercian2();
   drawCistercian1();
   //zero*/
-  drawCistercian0();
-  if(!digitalRead(NEXT_BUTTON) && counter >= 0) {
+  
+  /*if(!digitalRead(NEXT_BUTTON) && counter >= 0) {
       counter--;
-   // while(!digitalRead(BACK_BUTTON));
+    //while(!digitalRead(BACK_BUTTON));
   }
   if(!digitalRead(BACK_BUTTON) && counter < 9999) {
     counter++;
     //while(!digitalRead(BACK_BUTTON));
-  }
+  }*/
   //drawDots();
-  drawCistercian();
-  matrix.setCursor(32,0);
-  matrix.print(counter);
+  //matrix.setCursor(32,0);
+  //matrix.print(counter);
+  int h = timeClient.getHours();
+  int m = timeClient.getMinutes();
+  counter = concatenate(h, m);
+
+  drawCistercian();//interpret the counter
+  drawCistercian0();//but always shows zero
+
+
+
 }
